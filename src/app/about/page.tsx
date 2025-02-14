@@ -1,6 +1,6 @@
 import { FC } from 'react';
 
-import ContainerAbout from '@/components/Containers/About/About';
+import ContainerAbout from '@/components/Containers/About';
 
 const About: FC = () => {
   return <ContainerAbout />;

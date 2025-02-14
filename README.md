@@ -45,7 +45,6 @@ Terdapat beberapa poin penting terkait bagaimana menjalankan proyek arsitektur y
 │   └── data/
 │   └── hooks/
 │   └── interfaces/
-│   └── layouts/
 │   └── lib/
 │   └── providers/
 └── .env.example

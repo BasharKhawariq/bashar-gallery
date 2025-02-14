@@ -3,10 +3,10 @@ import { FC, useState, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 
-import styles from './Navbar.module.css';
-import { headerNavLinks } from '@/data/headerNavLinks';
-import { classNames } from '@/lib/classNames';
+import { cn } from '@/lib/utils';
+import { navlinks } from './constant/navLinks';
 import ThemeToggle from '@/components/Common/ThemeToggle';
+import styles from './Navbar.module.css';
 
 const Navbar: FC = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -98,15 +98,15 @@ const Navbar: FC = () => {
                 className="hidden absolute py-5 bg-white shadow-lg rounded-lg max-w-[250px] w-full right-4 top-full lg:block lg:static lg:bg-transparent lg:max-w-full lg:shadow-none lg:rounded-none"
               >
                 <ul className="block lg:flex">
-                  {headerNavLinks?.map((a, i) => (
+                  {navlinks?.map((a, i) => (
                     <li className="group" key={i}>
                       <Link
                         href={a.path}
-                        className={classNames(
+                        className={cn(
                           isMenuActive(a.path)
-                            ? 'text-teal-500'
-                            : 'text-black dark:text-zinc-50',
-                          'font-secondary font-semibold text-base py-2 mx-8 lg:mx-2 flex group-hover:text-teal-500 transition duration-300 ease-in-out',
+                            ? 'text-blue-500 font-semibold'
+                            : 'text-black dark:text-zinc-50 font-normal',
+                          'font-secondary text-base py-2 mx-8 lg:mx-2 flex group-hover:text-blue-500 transition duration-300 ease-in-out',
                         )}
                       >
                         {a.title}
@@ -115,12 +115,12 @@ const Navbar: FC = () => {
                   ))}
                   <li className="group">
                     <Link
-                      href="/login"
-                      className={classNames(
+                      href="/auth/login"
+                      className={cn(
                         isMenuActive('/login')
-                          ? 'text-teal-500'
-                          : 'text-black dark:text-zinc-50',
-                        'font-secondary font-semibold text-base py-2 mx-8 lg:mx-2 flex group-hover:text-teal-500 transition duration-300 ease-in-out',
+                          ? 'text-blue-500 font-semibold'
+                          : 'text-black dark:text-zinc-50 font-normal',
+                        'font-secondary text-base py-2 mx-8 lg:mx-2 flex group-hover:text-blue-500 transition duration-300 ease-in-out',
                       )}
                     >
                       Masuk
@@ -128,12 +128,12 @@ const Navbar: FC = () => {
                   </li>
                   <li className="group">
                     <Link
-                      href="/register"
-                      className={classNames(
+                      href="/auth/register"
+                      className={cn(
                         isMenuActive('/register')
-                          ? 'text-teal-500'
-                          : 'text-black dark:text-zinc-50',
-                        'font-secondary font-semibold text-base py-2 mx-8 lg:mx-2 flex group-hover:text-teal-500 transition duration-300 ease-in-out',
+                          ? 'text-blue-500 font-semibold'
+                          : 'text-black dark:text-zinc-50 font-normal',
+                        'font-secondary text-base py-2 mx-8 lg:mx-2 flex group-hover:text-blue-500 transition duration-300 ease-in-out',
                       )}
                     >
                       Daftar

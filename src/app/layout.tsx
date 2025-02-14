@@ -4,6 +4,8 @@ import { Inter as FontSans } from 'next/font/google';
 import './globals.css';
 
 import ThemeProvider from '@/providers/ThemeProvider';
+import Navbar from '@/components/Mixins/Navbar';
+import Footer from '@/components/Mixins/Footer';
 
 const fontSans = FontSans({ subsets: ['latin'] });
 
@@ -18,10 +20,14 @@ export default function RootLayout({
   children: ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body className={fontSans.className}>
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
-          {children}
+          <Navbar />
+
+          <main className='min-h-screen flex items-center justify-center mx-auto'>{children}</main>
+
+          <Footer />
         </ThemeProvider>
       </body>
     </html>
