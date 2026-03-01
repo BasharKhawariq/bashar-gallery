@@ -126,7 +126,7 @@ const Navbar: FC = () => {
           </div>
         </div>
       </div>
-    </header >
+    </header>
   );
 };
 

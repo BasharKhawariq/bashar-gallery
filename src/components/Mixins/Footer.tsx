@@ -2,13 +2,7 @@
 import { FC } from 'react';
 import Link from 'next/link';
 
-import {
-  FacebookIcon,
-  InstagramIcon,
-  LinkedInIcon,
-  TwitterIcon,
-  GitHubIcon,
-} from '../Common/CustomIcons';
+import { InstagramIcon, LinkedInIcon, TwitterIcon, GitHubIcon } from '../Common/CustomIcons';
 
 const Footer: FC = () => {
   const year = new Date().getFullYear();
