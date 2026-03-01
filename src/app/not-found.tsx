@@ -3,7 +3,8 @@ import { FC } from 'react';
 import { Metadata } from 'next';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
-import { genPageMetadata } from './seo';
+
+import { genPageMetadata } from '@/app/seo';
 
 export const metadata: Metadata = genPageMetadata({
   title: '404 - Command Not Found',
