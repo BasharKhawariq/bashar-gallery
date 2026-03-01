@@ -47,3 +47,6 @@ package-lock.json
 pnpm-lock.yaml
 bun.lockb
 bun.lock
+
+# workspace
+pnpm-workspace.yaml

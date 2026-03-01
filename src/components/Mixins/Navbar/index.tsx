@@ -60,18 +60,8 @@ const Navbar: FC = () => {
         <div className="max-w-7xl mx-auto">
           <div className="flex items-center justify-between relative">
             <div className="px-4">
-              <Link href="/" legacyBehavior>
-                <a
-                  className="inline-flex items-center gap-2 font-primary font-bold text-xl lg:text-2xl py-6"
-                  aria-label="logo"
-                >
-                  {/* <img
-                    src="/apple-touch-icon.png"
-                    alt="Brand Logo"
-                    className="w-8 h-8 object-cover object-center"
-                  /> */}
-                  Navbar
-                </a>
+              <Link href="/" className="inline-flex items-center gap-2 font-primary font-bold text-xl lg:text-2xl py-6" aria-label="logo">
+                📦️ BikinProject
               </Link>
             </div>
             <div className="flex items-center px-4">
@@ -97,57 +87,46 @@ const Navbar: FC = () => {
                 id="navMenu"
                 className="hidden absolute py-5 bg-white shadow-lg rounded-lg max-w-[250px] w-full right-4 top-full lg:block lg:static lg:bg-transparent lg:max-w-full lg:shadow-none lg:rounded-none"
               >
-                <ul className="block lg:flex">
+                <ul className="block lg:flex lg:items-center">
                   {navlinks?.map((a, i) => (
                     <li className="group" key={i}>
                       <Link
                         href={a.path}
                         className={cn(
-                          isMenuActive(a.path)
-                            ? 'text-blue-500 font-semibold'
-                            : 'text-black dark:text-zinc-50 font-normal',
-                          'font-secondary text-base py-2 mx-8 lg:mx-2 flex group-hover:text-blue-500 transition duration-300 ease-in-out',
+                          styles.navLink,
+                          isMenuActive(a.path) && styles.navLinkActive,
+                          'mx-8 lg:mx-4 flex',
                         )}
                       >
                         {a.title}
                       </Link>
                     </li>
                   ))}
-                  <li className="group">
+                  <li className="ml-8 lg:ml-6 flex items-center gap-4">
                     <Link
-                      href="/auth/login"
-                      className={cn(
-                        isMenuActive('/login')
-                          ? 'text-blue-500 font-semibold'
-                          : 'text-black dark:text-zinc-50 font-normal',
-                        'font-secondary text-base py-2 mx-8 lg:mx-2 flex group-hover:text-blue-500 transition duration-300 ease-in-out',
-                      )}
+                      href="/login"
+                      className="text-zinc-700 dark:text-zinc-300 font-medium hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
                     >
                       Masuk
                     </Link>
-                  </li>
-                  <li className="group">
                     <Link
-                      href="/auth/register"
-                      className={cn(
-                        isMenuActive('/register')
-                          ? 'text-blue-500 font-semibold'
-                          : 'text-black dark:text-zinc-50 font-normal',
-                        'font-secondary text-base py-2 mx-8 lg:mx-2 flex group-hover:text-blue-500 transition duration-300 ease-in-out',
-                      )}
+                      href="/register"
+                      className="px-6 py-2.5 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-xl transition-all duration-300 shadow-lg shadow-blue-500/20 hover:scale-[1.02] active:scale-[0.98]"
                     >
                       Daftar
                     </Link>
                   </li>
 
-                  <ThemeToggle />
+                  <li className='ml-8 lg:ml-4 flex items-center'>
+                    <ThemeToggle />
+                  </li>
                 </ul>
               </nav>
             </div>
           </div>
         </div>
       </div>
-    </header>
+    </header >
   );
 };
 

@@ -9,31 +9,32 @@
     "lint:fix": "next lint --fix"
   },
   "dependencies": {
-    "axios": "^1.7.9",
+    "axios": "^1.13.6",
     "clsx": "^2.1.1",
-    "eslint": "^9",
-    "eslint-config-next": "15.1.7",
-    "eslint-config-prettier": "^10.0.1",
-    "eslint-plugin-prettier": "^5.2.3",
-    "next": "15.1.7",
-    "next-themes": "^0.4.4",
-    "prettier": "^3.5.0",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
+    "eslint": "^10.0.2",
+    "eslint-config-next": "16.1.6",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-prettier": "^5.5.5",
+    "next": "16.1.6",
+    "next-themes": "^0.4.6",
+    "prettier": "^3.8.1",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "react-spinner": "^0.2.7",
     "react-spinners": "^0.15.0",
     "smoothscroll-polyfill": "^0.4.4",
-    "tailwind-merge": "^3.0.1"
+    "tailwind-merge": "^3.5.0"
   },
   "devDependencies": {
-    "@eslint/eslintrc": "^3",
-    "@types/node": "^20",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
+    "@eslint/eslintrc": "^3.3.4",
+    "@types/node": "^25.3.3",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
     "@types/smoothscroll-polyfill": "^0.3.4",
-    "@typescript-eslint/eslint-plugin": "^8.24.0",
-    "autoprefixer": "^10.4.20",
-    "postcss": "^8",
+    "@typescript-eslint/eslint-plugin": "^8.56.1",
+    "autoprefixer": "^10.4.27",
+    "postcss": "^8.5.6",
     "tailwindcss": "^3.4.1",
-    "typescript": "^5"
+    "typescript": "^5.9.3"
   }
 }
