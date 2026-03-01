@@ -4,37 +4,43 @@ import { FC } from 'react';
 const features = [
   {
     title: 'Zero Config',
-    description: 'Lupakan setup yang rumit. Mulai project Anda dalam hitungan detik dengan konfigurasi yang sudah dioptimalkan.',
+    description:
+      'Lupakan setup yang rumit. Mulai project Anda dalam hitungan detik dengan konfigurasi yang sudah dioptimalkan.',
     icon: '⚙️',
     color: 'bg-blue-500/10 text-blue-600 dark:text-blue-400',
   },
   {
     title: 'Interactive CLI',
-    description: 'Antarmuka baris perintah yang interaktif dan intuitif, memudahkan Anda memilih opsi project.',
+    description:
+      'Antarmuka baris perintah yang interaktif dan intuitif, memudahkan Anda memilih opsi project.',
     icon: '💻',
     color: 'bg-cyan-500/10 text-cyan-600 dark:text-cyan-400',
   },
   {
     title: 'Multi-framework',
-    description: 'Mendukung berbagai framework populer seperti Next.js, React, Laravel, dan akan terus bertambah.',
+    description:
+      'Mendukung berbagai framework populer seperti Next.js, React, Laravel, dan akan terus bertambah.',
     icon: '📚',
     color: 'bg-indigo-500/10 text-indigo-600 dark:text-indigo-400',
   },
   {
     title: 'Standardisasi Kode',
-    description: 'Setiap project dihasilkan dengan struktur folder dan standar kode terbaik yang konsisten.',
+    description:
+      'Setiap project dihasilkan dengan struktur folder dan standar kode terbaik yang konsisten.',
     icon: '🛠️',
     color: 'bg-emerald-500/10 text-emerald-600 dark:text-emerald-400',
   },
   {
     title: 'Developer Experience',
-    description: 'Dibuat dengan fokus utama pada kenyamanan developer untuk produktivitas maksimal.',
+    description:
+      'Dibuat dengan fokus utama pada kenyamanan developer untuk produktivitas maksimal.',
     icon: '✨',
     color: 'bg-amber-500/10 text-amber-600 dark:text-amber-400',
   },
   {
     title: 'Open Source',
-    description: 'Didukung oleh komunitas dan bebas untuk dikustomisasi sesuai kebutuhan spesifik Anda.',
+    description:
+      'Didukung oleh komunitas dan bebas untuk dikustomisasi sesuai kebutuhan spesifik Anda.',
     icon: '🌐',
     color: 'bg-rose-500/10 text-rose-600 dark:text-rose-400',
   },
@@ -49,7 +55,8 @@ const Features: FC = () => {
             Fitur Unggulan Kami
           </h2>
           <p className="text-lg text-zinc-700 dark:text-zinc-400 font-medium tracking-tight">
-            Segala yang Anda butuhkan untuk membangun project modern dalam satu platform yang terintegrasi.
+            Segala yang Anda butuhkan untuk membangun project modern dalam satu platform yang
+            terintegrasi.
           </p>
         </div>
 

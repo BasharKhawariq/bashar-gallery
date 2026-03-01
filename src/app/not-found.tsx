@@ -23,7 +23,9 @@ const NotFound: FC = () => {
             <div className="w-3 h-3 rounded-full bg-amber-500/60" />
             <div className="w-3 h-3 rounded-full bg-emerald-500/60" />
           </div>
-          <div className="mx-auto text-[10px] text-zinc-500 font-bold uppercase tracking-wider">Error — 404 Not Found</div>
+          <div className="mx-auto text-[10px] text-zinc-500 font-bold uppercase tracking-wider">
+            Error — 404 Not Found
+          </div>
         </div>
         <div className="p-8 space-y-6">
           <div className="space-y-2">
@@ -65,6 +67,6 @@ const NotFound: FC = () => {
       </div>
     </div>
   );
-}
+};
 
 export default NotFound;

@@ -31,8 +31,8 @@ const Hero: FC = () => {
             </h1>
 
             <p className="text-lg md:text-xl text-zinc-700 dark:text-zinc-400 max-w-xl leading-relaxed font-medium">
-              Generator starter project yang didesain untuk kenyamanan developer.
-              Lupakan setup manual, cukup satu perintah dan project Anda siap tempur.
+              Generator starter project yang didesain untuk kenyamanan developer. Lupakan setup
+              manual, cukup satu perintah dan project Anda siap tempur.
             </p>
 
             <div className="bg-zinc-100 dark:bg-zinc-900 p-4 rounded-2xl border-2 border-zinc-200 dark:border-zinc-800 font-mono text-sm md:text-base flex items-center justify-between group">
@@ -44,7 +44,20 @@ const Hero: FC = () => {
                 className="p-2 hover:bg-zinc-200 dark:hover:bg-zinc-800 rounded-lg transition-colors text-zinc-500 hover:text-blue-600"
                 title="Copy to clipboard"
               >
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2" /><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" /></svg>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <rect width="14" height="14" x="8" y="8" rx="2" ry="2" />
+                  <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" />
+                </svg>
               </button>
             </div>
 
@@ -73,18 +86,24 @@ const Hero: FC = () => {
                   <div className="w-3.5 h-3.5 rounded-full bg-amber-500/40" />
                   <div className="w-3.5 h-3.5 rounded-full bg-emerald-500/40" />
                 </div>
-                <div className="mx-auto text-xs font-mono text-zinc-500 font-medium">bash — create-bikinproject-app</div>
+                <div className="mx-auto text-xs font-mono text-zinc-500 font-medium">
+                  bash — create-bikinproject-app
+                </div>
               </div>
               <div className="bg-white dark:bg-zinc-950 p-6 font-mono text-sm leading-relaxed overflow-x-auto h-[400px]">
                 <div className="space-y-2">
                   <p className="text-zinc-400">┌ create-bikinproject-app</p>
                   <p className="flex gap-3">
                     <span className="text-cyan-600 dark:text-cyan-400">│</span>
-                    <span className="text-zinc-800 dark:text-zinc-200">◇ Where should we create your project?</span>
+                    <span className="text-zinc-800 dark:text-zinc-200">
+                      ◇ Where should we create your project?
+                    </span>
                   </p>
                   <p className="flex gap-3">
                     <span className="text-cyan-600 dark:text-cyan-400">│</span>
-                    <span className="text-cyan-600 dark:text-cyan-400 font-bold underline">./your-project</span>
+                    <span className="text-cyan-600 dark:text-cyan-400 font-bold underline">
+                      ./your-project
+                    </span>
                   </p>
                   <p className="text-zinc-400">│</p>
                   <p className="flex gap-3">
@@ -93,7 +112,9 @@ const Hero: FC = () => {
                   </p>
                   <p className="flex gap-3">
                     <span className="text-cyan-600 dark:text-cyan-400">│</span>
-                    <span className="text-cyan-600 dark:text-cyan-400 font-bold">● Next.js App Router (Tailwind + TypeScript)</span>
+                    <span className="text-cyan-600 dark:text-cyan-400 font-bold">
+                      ● Next.js App Router (Tailwind + TypeScript)
+                    </span>
                   </p>
                   <p className="flex gap-3 pl-6">
                     <span className="text-zinc-500">○ React.js (Tailwind + JavaScript)</span>
@@ -104,15 +125,22 @@ const Hero: FC = () => {
                   <p className="text-zinc-400">│</p>
                   <p className="flex gap-3">
                     <span className="text-cyan-600 dark:text-cyan-400">│</span>
-                    <span className="text-emerald-600 dark:text-emerald-400">⏳ Creating project...</span>
+                    <span className="text-emerald-600 dark:text-emerald-400">
+                      ⏳ Creating project...
+                    </span>
                   </p>
                   <p className="flex gap-3">
                     <span className="text-cyan-600 dark:text-cyan-400">│</span>
-                    <span className="text-emerald-600 dark:text-emerald-400">✅ Project created successfully!</span>
+                    <span className="text-emerald-600 dark:text-emerald-400">
+                      ✅ Project created successfully!
+                    </span>
                   </p>
                   <p className="text-zinc-400">│</p>
                   <p className="text-zinc-400 text-xs">────────────────────────╮</p>
-                  <p className="text-blue-600 dark:text-blue-400 font-bold">  🎉 Project ready to use!</p>
+                  <p className="text-blue-600 dark:text-blue-400 font-bold">
+                    {' '}
+                    🎉 Project ready to use!
+                  </p>
                   <p className="text-zinc-400 text-xs">────────────────────────╯</p>
                 </div>
               </div>

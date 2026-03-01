@@ -29,13 +29,12 @@ const Contact: FC = () => {
                   </h1>
 
                   <h1 className="title-font sm:text-2xl text-xl mb-4 font-medium text-gray-900 dark:text-zinc-50">
-                    Fullstack Web Developer | Undergraduate Information Systems
-                    Student
+                    Fullstack Web Developer | Undergraduate Information Systems Student
                   </h1>
 
                   <p className="mb-8 leading-relaxed dark:text-gray-400">
-                    Saya bersemangat memberikan kontribusi untuk memberikan
-                    pengetahuan teknologi bagi semua orang!
+                    Saya bersemangat memberikan kontribusi untuk memberikan pengetahuan teknologi
+                    bagi semua orang!
                   </p>
 
                   <div className="flex justify-center">

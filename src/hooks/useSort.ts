@@ -26,24 +26,24 @@ function useSort(): SortHookReturn {
     const sortParam = newDirection === 'asc' ? field : `-${field}`;
 
     if (newDirection === '') {
-      deleteSort()
+      deleteSort();
     } else {
       handleChangeSort(sortParam);
     }
-  }
+  };
 
   const deleteSort = (): void => {
     setSortBy('');
-  }
+  };
 
   const handleChangeSort = (field: string): void => {
     setSortBy(field);
-  }
+  };
 
   return {
     sortBy: sortBy,
     direction,
-    handleSort
+    handleSort,
   };
 }
 
@@ -51,6 +51,6 @@ export type SortHookReturn = {
   sortBy: string;
   direction: SortDirection;
   handleSort: (field: string) => void;
-}
+};
 
 export default useSort;

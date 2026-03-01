@@ -5,7 +5,8 @@ import { siteMetadata } from '@/data/siteMetadata';
 
 export const metadata = genPageMetadata({
   title: 'Tentang BikinProject',
-  description: 'Pelajari lebih lanjut tentang BikinProject, motivasi di baliknya, dan bagaimana alat ini dapat membantu Anda membangun proyek dengan lebih cepat.',
+  description:
+    'Pelajari lebih lanjut tentang BikinProject, motivasi di baliknya, dan bagaimana alat ini dapat membantu Anda membangun proyek dengan lebih cepat.',
 });
 
 const About: FC = () => {
@@ -33,7 +34,9 @@ const About: FC = () => {
                   <span className="bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 p-1 px-2 rounded font-mono font-bold">
                     BikinProject
                   </span>{' '}
-                  adalah sebuah CLI-based starter project generator yang dirancang untuk mempercepat proses inisialisasi aplikasi dengan standar industri. Proyek ini mendukung berbagai framework populer seperti Next.js, React, dan Laravel.
+                  adalah sebuah CLI-based starter project generator yang dirancang untuk mempercepat
+                  proses inisialisasi aplikasi dengan standar industri. Proyek ini mendukung
+                  berbagai framework populer seperti Next.js, React, dan Laravel.
                 </p>
 
                 <p className="sm:text-lg mb-6 md:mb-8 text-justify">
@@ -46,11 +49,14 @@ const About: FC = () => {
                   >
                     Saya
                   </a>{' '}
-                  akan standarisasi struktur proyek saat memulai development baru. Alih-alih melakukan setup manual yang repetitif, BikinProject mengotomatisasi segalanya mulai dari pemilihan bahasa, styling framework, hingga struktur folder terbaik.
+                  akan standarisasi struktur proyek saat memulai development baru. Alih-alih
+                  melakukan setup manual yang repetitif, BikinProject mengotomatisasi segalanya
+                  mulai dari pemilihan bahasa, styling framework, hingga struktur folder terbaik.
                 </p>
 
                 <p className="sm:text-lg mb-6 md:mb-8 text-justify">
-                  Hanya dengan satu perintah di terminal, Anda bisa langsung fokus membangun fitur tanpa pusing dengan boilerplate:
+                  Hanya dengan satu perintah di terminal, Anda bisa langsung fokus membangun fitur
+                  tanpa pusing dengan boilerplate:
                   <div className="mt-4 p-4 bg-zinc-900 rounded-xl font-mono text-sm text-emerald-400 border border-zinc-800">
                     $ npx bikinproject@latest
                   </div>

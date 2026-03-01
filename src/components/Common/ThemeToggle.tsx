@@ -7,7 +7,9 @@ const ThemeToggle: FC = () => {
   const { theme, setTheme, resolvedTheme } = useTheme();
 
   // When mounted on client, now we can show the UI
-  useEffect(() => setMounted(true), []);
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   if (!mounted) {
     return null;
@@ -16,11 +18,7 @@ const ThemeToggle: FC = () => {
   return (
     <button
       aria-label="Toggle Dark Mode"
-      onClick={() =>
-        setTheme(
-          theme === 'dark' || resolvedTheme === 'dark' ? 'light' : 'dark',
-        )
-      }
+      onClick={() => setTheme(theme === 'dark' || resolvedTheme === 'dark' ? 'light' : 'dark')}
       className="ml-3"
     >
       <svg

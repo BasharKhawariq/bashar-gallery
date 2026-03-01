@@ -5,17 +5,20 @@ const steps = [
   {
     number: '01',
     title: 'Jalankan Command',
-    description: 'Buka terminal favorit Anda dan jalankan "npx bikinproject@latest". Tidak perlu instalasi global yang memberatkan sistem.',
+    description:
+      'Buka terminal favorit Anda dan jalankan "npx bikinproject@latest". Tidak perlu instalasi global yang memberatkan sistem.',
   },
   {
     number: '02',
     title: 'Pilih Konfigurasi',
-    description: 'Pilih framework (Next.js, React, Laravel), bahasa (TS/JS), dan CSS framework melalui antarmuka CLI yang interaktif.',
+    description:
+      'Pilih framework (Next.js, React, Laravel), bahasa (TS/JS), dan CSS framework melalui antarmuka CLI yang interaktif.',
   },
   {
     number: '03',
     title: 'Project Siap!',
-    description: 'BikinProject akan men-generate starter project lengkap dengan best practices, siap untuk Anda kembangkan lebih lanjut.',
+    description:
+      'BikinProject akan men-generate starter project lengkap dengan best practices, siap untuk Anda kembangkan lebih lanjut.',
   },
 ];
 
@@ -29,7 +32,8 @@ const Steps: FC = () => {
               Langkah Sederhana <br /> Untuk Project Terpercaya
             </h2>
             <p className="text-lg text-zinc-700 dark:text-zinc-400 font-medium tracking-tight">
-              Kami menyederhanakan proses kompleks menjadi langkah-langkah yang mudah dipahami, memastikan Anda selalu terlibat dalam setiap progres.
+              Kami menyederhanakan proses kompleks menjadi langkah-langkah yang mudah dipahami,
+              memastikan Anda selalu terlibat dalam setiap progres.
             </p>
             <div className="pt-4">
               <button className="px-8 py-4 bg-zinc-950 dark:bg-white text-white dark:text-zinc-900 font-bold rounded-2xl hover:scale-105 transition-transform duration-300 shadow-lg shadow-zinc-500/10">
@@ -48,9 +52,7 @@ const Steps: FC = () => {
                   {step.number}
                 </div>
                 <div className="space-y-2">
-                  <h3 className="text-xl font-bold text-zinc-950 dark:text-white">
-                    {step.title}
-                  </h3>
+                  <h3 className="text-xl font-bold text-zinc-950 dark:text-white">{step.title}</h3>
                   <p className="text-zinc-700 dark:text-zinc-400 leading-relaxed font-medium text-justify">
                     {step.description}
                   </p>

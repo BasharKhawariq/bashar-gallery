@@ -28,12 +28,17 @@ const Login: FC = () => {
         <div className="p-8 space-y-8">
           <div className="text-center space-y-2">
             <h1 className="text-3xl font-black text-zinc-950 dark:text-white">Selamat Datang</h1>
-            <p className="text-zinc-500 dark:text-zinc-400 font-medium">Masuk untuk mengelola project Anda.</p>
+            <p className="text-zinc-500 dark:text-zinc-400 font-medium">
+              Masuk untuk mengelola project Anda.
+            </p>
           </div>
 
           <form className="space-y-5">
             <div className="space-y-2">
-              <label htmlFor="email" className="block text-sm font-bold text-zinc-700 dark:text-zinc-300 font-mono">
+              <label
+                htmlFor="email"
+                className="block text-sm font-bold text-zinc-700 dark:text-zinc-300 font-mono"
+              >
                 $ user.email
               </label>
               <input
@@ -46,7 +51,10 @@ const Login: FC = () => {
             </div>
 
             <div className="space-y-2">
-              <label htmlFor="password" className="block text-sm font-bold text-zinc-700 dark:text-zinc-300 font-mono">
+              <label
+                htmlFor="password"
+                className="block text-sm font-bold text-zinc-700 dark:text-zinc-300 font-mono"
+              >
                 $ user.password
               </label>
               <input
@@ -67,7 +75,9 @@ const Login: FC = () => {
 
             <div className="relative flex items-center justify-center">
               <span className="absolute inset-x-0 h-px bg-zinc-100 dark:bg-zinc-800"></span>
-              <span className="relative bg-white dark:bg-zinc-950 px-4 text-xs font-bold text-zinc-400 uppercase tracking-widest">Atau</span>
+              <span className="relative bg-white dark:bg-zinc-950 px-4 text-xs font-bold text-zinc-400 uppercase tracking-widest">
+                Atau
+              </span>
             </div>
 
             <button className="w-full flex items-center justify-center gap-3 py-3.5 rounded-2xl border-2 border-zinc-100 dark:border-zinc-800 hover:bg-zinc-50 dark:hover:bg-zinc-900 transition-all font-bold text-zinc-900 dark:text-white">
@@ -78,7 +88,10 @@ const Login: FC = () => {
 
           <p className="text-center text-zinc-500 dark:text-zinc-400 font-medium">
             Belum punya akun?{' '}
-            <Link href="/auth/register" className="text-blue-600 dark:text-blue-400 font-bold hover:underline">
+            <Link
+              href="/auth/register"
+              className="text-blue-600 dark:text-blue-400 font-bold hover:underline"
+            >
               Daftar Sekarang
             </Link>
           </p>

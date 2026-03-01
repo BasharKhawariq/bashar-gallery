@@ -1,14 +1,5 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 'use client';
-import {
-  createContext,
-  Dispatch,
-  FC,
-  ReactNode,
-  SetStateAction,
-  useEffect,
-  useState,
-} from 'react';
+import { createContext, Dispatch, FC, ReactNode, SetStateAction, useEffect, useState } from 'react';
 
 import { Auth } from '@/interfaces/auth';
 
@@ -62,7 +53,6 @@ export const AuthProvider: FC<Props> = ({ children }) => {
   useEffect(() => {
     localStorage.setItem('access_token', accessToken || '');
     localStorage.setItem('user', JSON.stringify(user) || '');
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [accessToken, user]);
 
   return (

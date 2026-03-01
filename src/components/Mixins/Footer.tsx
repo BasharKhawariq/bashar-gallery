@@ -61,7 +61,8 @@ const Footer: FC = () => {
               📦️ BikinProject
             </Link>
             <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed font-medium">
-              CLI-based package starter generator yang dirancang untuk mempercepat workflow pengembangan aplikasi Anda dengan standar industri.
+              CLI-based package starter generator yang dirancang untuk mempercepat workflow
+              pengembangan aplikasi Anda dengan standar industri.
             </p>
             <div className="flex gap-4 pt-2">
               {socials.map((social) => (
@@ -125,8 +126,12 @@ const Footer: FC = () => {
         <div className="pt-8 border-t border-zinc-900 flex flex-col md:flex-row justify-between items-center gap-4 text-sm tracking-wide">
           <p>© {year} BikinProject. Seluruh hak cipta dilindungi undang-undang.</p>
           <div className="flex gap-8">
-            <Link href="/privacy" className="hover:text-white transition-colors">Kebijakan Privasi</Link>
-            <Link href="/terms" className="hover:text-white transition-colors">Syarat & Ketentuan</Link>
+            <Link href="/privacy" className="hover:text-white transition-colors">
+              Kebijakan Privasi
+            </Link>
+            <Link href="/terms" className="hover:text-white transition-colors">
+              Syarat & Ketentuan
+            </Link>
           </div>
         </div>
       </div>

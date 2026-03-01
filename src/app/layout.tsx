@@ -11,7 +11,7 @@ import Footer from '@/components/Mixins/Footer';
 const fontSans = FontSans({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(siteMetadata.siteUrl || "http://localhost:3000"),
+  metadataBase: new URL(siteMetadata.siteUrl || 'http://localhost:3000'),
   title: {
     default: siteMetadata.title,
     template: `%s | ${siteMetadata.headerTitle}`,
@@ -55,7 +55,7 @@ export default function RootLayout({
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
           <Navbar />
 
-          <main className='min-h-screen'>{children}</main>
+          <main className="min-h-screen">{children}</main>
 
           <Footer />
         </ThemeProvider>

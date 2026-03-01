@@ -60,7 +60,11 @@ const Navbar: FC = () => {
         <div className="max-w-7xl mx-auto">
           <div className="flex items-center justify-between relative">
             <div className="px-4">
-              <Link href="/" className="inline-flex items-center gap-2 font-primary font-bold text-xl lg:text-2xl py-6" aria-label="logo">
+              <Link
+                href="/"
+                className="inline-flex items-center gap-2 font-primary font-bold text-xl lg:text-2xl py-6"
+                aria-label="logo"
+              >
                 📦️ BikinProject
               </Link>
             </div>
@@ -95,7 +99,7 @@ const Navbar: FC = () => {
                         className={cn(
                           styles.navLink,
                           isMenuActive(a.path) && styles.navLinkActive,
-                          'mx-8 lg:mx-4 flex',
+                          'mx-8 lg:mx-4 flex'
                         )}
                       >
                         {a.title}
@@ -117,7 +121,7 @@ const Navbar: FC = () => {
                     </Link>
                   </li>
 
-                  <li className='ml-8 lg:ml-4 flex items-center'>
+                  <li className="ml-8 lg:ml-4 flex items-center">
                     <ThemeToggle />
                   </li>
                 </ul>

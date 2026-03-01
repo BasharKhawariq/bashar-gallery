@@ -1,7 +1,7 @@
-import { Metadata } from 'next'
+import { Metadata } from 'next';
 
-import { PageSEOProps } from '@/interfaces/seo'
-import { siteMetadata } from '@/data/siteMetadata'
+import { PageSEOProps } from '@/interfaces/seo';
+import { siteMetadata } from '@/data/siteMetadata';
 
 export function genPageMetadata({ title, description, image, ...rest }: PageSEOProps): Metadata {
   return {
@@ -22,5 +22,5 @@ export function genPageMetadata({ title, description, image, ...rest }: PageSEOP
       images: image ? [image] : [siteMetadata.socialBanner],
     },
     ...rest,
-  }
+  };
 }

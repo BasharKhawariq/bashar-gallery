@@ -1,50 +1,38 @@
-import { dirname } from "path";
-import { fileURLToPath } from "url";
-import { FlatCompat } from "@eslint/eslintrc";
+import nextConfig from 'eslint-config-next';
+import prettierPlugin from 'eslint-plugin-prettier/recommended';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-
-const compat = new FlatCompat({
-  baseDirectory: __dirname,
-});
-
-const eslintConfig = [
-  ...compat.extends("next/core-web-vitals", "next/typescript", "plugin:@typescript-eslint/recommended", "plugin:prettier/recommended"),
-  ...compat.plugins("@typescript-eslint/eslint-plugin", "react", "react-hooks"),
-  ...compat.config({
-    // plugins: ["@typescript-eslint/eslint-plugin", "react", "react-hooks"],
-    // extends: [
-    //   "plugin:@typescript-eslint/recommended",
-    //   "plugin:prettier/recommended",
-    // ],
+/** @type {import('eslint').Linter.Config[]} */
+export default [
+  ...nextConfig,
+  {
     rules: {
-      "@next/next/no-img-element": "off",
-      "@typescript-eslint/interface-name-prefix": "off",
-      "@typescript-eslint/explicit-function-return-type": "off",
-      "@typescript-eslint/explicit-module-boundary-types": "off",
-      "@typescript-eslint/no-explicit-any": "off",
-      "react-hooks/rules-of-hooks": "error",
-      "react-hooks/exhaustive-deps": "warn",
-      "@typescript-eslint/quotes": [
-        "error",
-        "single",
+      '@next/next/no-img-element': 'off',
+      '@typescript-eslint/interface-name-prefix': 'off',
+      '@typescript-eslint/explicit-function-return-type': 'off',
+      '@typescript-eslint/explicit-module-boundary-types': 'off',
+      '@typescript-eslint/no-explicit-any': 'off',
+      'react-hooks/rules-of-hooks': 'error',
+      'react-hooks/exhaustive-deps': 'warn',
+      'react/jsx-no-comment-textnodes': 'off',
+      'react-hooks/set-state-in-effect': 'off',
+      '@typescript-eslint/quotes': [
+        'error',
+        'single',
         {
           avoidEscape: true,
           allowTemplateLiterals: true,
         },
       ],
-      "prettier/prettier": [
-        "warn",
+      'prettier/prettier': [
+        'warn',
         {
           singleQuote: true,
           semi: true,
-          endOfLine: "auto",
+          endOfLine: 'auto',
         },
       ],
-      indent: ["error", 2, { SwitchCase: 1 }],
+      indent: ['error', 2, { SwitchCase: 1 }],
     },
-  }),
+  },
+  prettierPlugin,
 ];
-
-export default eslintConfig;
