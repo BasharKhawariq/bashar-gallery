@@ -8,8 +8,8 @@ export const siteMetadata = {
   language: 'id-ID',
   theme: 'system', // system, dark or light
   siteUrl: 'http://localhost:3000', // e.g. https://yourwebsite.com
-  siteRepo: 'https://github.com/nuflakbrr/next-template',
-  sitePublicRepo: 'https://github.com/nuflakbrr/next-template',
+  siteRepo: 'https://github.com/nuflakbrr/frontend-template',
+  sitePublicRepo: 'https://github.com/nuflakbrr/frontend-template',
   siteLogo: '/static/favicons/icon-512x512.png',
   image: '/static/images/profile-picture.png',
   socialBanner: '/static/images/twitter-card.png',
