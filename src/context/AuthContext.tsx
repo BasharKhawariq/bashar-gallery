@@ -12,14 +12,14 @@ type ContextType = {
   isLoading: boolean;
   accessToken?: string;
   setAccessToken: Dispatch<SetStateAction<string>> | ((value: string) => void);
-  setUser: Dispatch<SetStateAction<any>> | ((value: any) => void);
+  setUser: Dispatch<SetStateAction<Auth | undefined>> | ((value: Auth | undefined) => void);
   logout: () => void;
 };
 
 const defaultValue: ContextType = {
   isLoading: false,
   setAccessToken: (value: string) => null,
-  setUser: (value: any) => null,
+  setUser: (value: Auth | undefined) => null,
   logout: () => null,
 };
 
@@ -36,7 +36,7 @@ export const AuthProvider: FC<Props> = ({ children }) => {
     const _user = getUser ? JSON.parse(getUser) : null;
 
     if (getUser) {
-      setAccessToken(_token as any);
+      setAccessToken(_token || '');
       setUser(_user);
     } else {
       setIsLoading(false);

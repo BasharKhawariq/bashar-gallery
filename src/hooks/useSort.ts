@@ -1,9 +1,6 @@
 import { useState } from 'react';
 
-export interface SortDirection {
-  field: string;
-  direction: string;
-}
+import { SortDirection } from '@/interfaces/hooks/useSort';
 
 function useSort(): SortHookReturn {
   const [direction, setDirection] = useState<SortDirection>({ field: '', direction: '' });
