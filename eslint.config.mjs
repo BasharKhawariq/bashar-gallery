@@ -2,7 +2,7 @@ import nextConfig from 'eslint-config-next';
 import prettierPlugin from 'eslint-plugin-prettier/recommended';
 
 /** @type {import('eslint').Linter.Config[]} */
-export default [
+const eslintConfig = [
   ...nextConfig,
   {
     rules: {
@@ -36,3 +36,5 @@ export default [
   },
   prettierPlugin,
 ];
+
+export default eslintConfig;

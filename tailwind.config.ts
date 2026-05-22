@@ -11,6 +11,11 @@ export default {
 
   theme: {
     extend: {
+      fontFamily: {
+        sans: ['var(--font-sans)', 'sans-serif'],
+        heading: ['var(--font-heading)', 'sans-serif'],
+      },
+
       colors: {
         background: 'var(--background)',
         foreground: 'var(--foreground)',

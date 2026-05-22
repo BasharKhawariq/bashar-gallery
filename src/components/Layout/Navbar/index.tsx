@@ -12,55 +12,135 @@ import styles from './Navbar.module.css';
 
 const Navbar: FC = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [activeHash, setActiveHash] = useState('');
 
   const pathname = usePathname();
 
   useEffect(() => {
-    window.onscroll = () => {
-      const header = document.querySelector('header');
-      const fixNav = header?.offsetTop ?? 0;
-
-      if (window.pageYOffset > fixNav) {
-        header?.classList.add(styles.navbarFixed);
-      } else {
-        header?.classList.remove(styles.navbarFixed);
-      }
+    const onScroll = () => {
+      setIsScrolled(window.scrollY > 12);
     };
+
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+
+    return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  const hamburgerHandler = () => {
-    const hamburger = document.querySelector('#hamburger');
-    const navMenu = document.querySelector('#navMenu');
+  useEffect(() => {
+    const syncHash = () => {
+      setActiveHash(window.location.hash || '');
+    };
 
-    setIsOpen(!isOpen);
+    syncHash();
+    window.addEventListener('hashchange', syncHash);
 
-    if (isOpen) {
-      hamburger?.classList.remove(styles.hamburgerActive);
-      navMenu?.classList.add('hidden');
-    } else {
-      hamburger?.classList.add(styles.hamburgerActive);
-      navMenu?.classList.remove('hidden');
-    }
+    return () => window.removeEventListener('hashchange', syncHash);
+  }, []);
+
+  useEffect(() => {
+    if (pathname !== '/') return;
+
+    const eventsSection = document.getElementById('events');
+    if (!eventsSection) return;
+
+    const headerElement = document.querySelector('header');
+
+    const updateActiveSection = () => {
+      const headerHeight = headerElement?.getBoundingClientRect().height ?? 0;
+      const offset = headerHeight + 24;
+      const rect = eventsSection.getBoundingClientRect();
+
+      const isEventsActive = rect.top <= offset && rect.bottom > offset;
+      const nextHash = isEventsActive ? '#events' : '';
+
+      setActiveHash((currentValue) => (currentValue === nextHash ? currentValue : nextHash));
+    };
+
+    updateActiveSection();
+    window.addEventListener('scroll', updateActiveSection, { passive: true });
+    window.addEventListener('resize', updateActiveSection);
+
+    return () => {
+      window.removeEventListener('scroll', updateActiveSection);
+      window.removeEventListener('resize', updateActiveSection);
+    };
+  }, [pathname]);
+
+  useEffect(() => {
+    setIsOpen(false);
+    setActiveHash(window.location.hash || '');
+  }, [pathname]);
+
+  const toggleMenu = () => {
+    setIsOpen((currentValue) => !currentValue);
   };
 
-  const isMenuActive = (path: string) => {
-    const isHomePage = pathname === '/' && path === '/';
+  const isExternalHref = (href: string) => /^https?:\/\//i.test(href);
 
-    if (isHomePage) {
-      return true;
+  const getHashInfo = (href: string) => {
+    const hashIndex = href.indexOf('#');
+    if (hashIndex === -1) return null;
+
+    return {
+      basePath: href.slice(0, hashIndex) || '/',
+      hash: href.slice(hashIndex),
+    };
+  };
+
+  const knownHashes = navlinks.reduce<string[]>((accumulator, link) => {
+    if (isExternalHref(link.path)) return accumulator;
+
+    const hashInfo = getHashInfo(link.path);
+    if (hashInfo?.hash) accumulator.push(hashInfo.hash);
+
+    return accumulator;
+  }, []);
+
+  const handleNavItemClick = () => {
+    setIsOpen(false);
+  };
+
+  const isMenuActive = (href: string) => {
+    if (isExternalHref(href)) return false;
+
+    const hashInfo = getHashInfo(href);
+
+    if (hashInfo) {
+      if (hashInfo.hash === '#events' && pathname.startsWith('/event')) {
+        return true;
+      }
+
+      return pathname === hashInfo.basePath && activeHash === hashInfo.hash;
     }
 
-    return pathname !== '/' && path !== '/' && pathname.includes(path);
+    if (href === '/') {
+      const hasKnownHash = activeHash !== '' && knownHashes.includes(activeHash);
+      return pathname === '/' && !hasKnownHash;
+    }
+
+    return pathname === href || pathname.startsWith(`${href}/`);
   };
 
   return (
-    <header className="absolute left-0 top-0 z-50 flex w-full items-center bg-transparent">
+    <header
+      className={cn(
+        'fixed left-0 top-0 z-50 flex w-full items-center border-b border-transparent transition-all duration-300',
+        isScrolled
+          ? 'border-border/70 bg-background/80 shadow-lg backdrop-blur-xl'
+          : 'bg-transparent'
+      )}
+    >
       <div className="container mx-auto">
-        <div className="relative flex items-center justify-between">
+        <div className="relative flex items-center justify-between gap-4">
           <div className="px-4">
             <Link
               href="/"
-              className="inline-flex items-center gap-2 py-6 text-xl font-bold tracking-wide text-white lg:text-2xl"
+              className={cn(
+                'inline-flex items-center gap-2 py-5 text-xl font-bold tracking-[0.22em] transition-colors lg:text-2xl',
+                isScrolled ? 'text-foreground' : 'text-white'
+              )}
             >
               BASHAR GALLERY
             </Link>
@@ -68,40 +148,58 @@ const Navbar: FC = () => {
 
           <div className="flex items-center px-4">
             <button
-              id="hamburger"
-              name="hamburger"
               type="button"
-              className="absolute right-4 block lg:hidden"
-              onClick={hamburgerHandler}
+              aria-label="Toggle navigation menu"
+              aria-expanded={isOpen}
+              className={cn(
+                'absolute right-4 flex h-10 w-10 items-center justify-center rounded-full border transition lg:hidden',
+                isScrolled
+                  ? 'border-border bg-card text-foreground'
+                  : 'border-white/20 bg-white/10 text-white'
+              )}
+              onClick={toggleMenu}
             >
+              <span className="sr-only">Toggle menu</span>
               <span
-                className={`${styles.hamburgerLine} origin-top-left`}
-              ></span>
-
-              <span className={styles.hamburgerLine}></span>
-
+                className={cn(
+                  styles.hamburgerLine,
+                  isScrolled ? 'bg-foreground' : 'bg-white',
+                  isOpen && styles.hamburgerActiveLineTop
+                )}
+              />
               <span
-                className={`${styles.hamburgerLine} origin-bottom-left`}
-              ></span>
+                className={cn(
+                  styles.hamburgerLine,
+                  isScrolled ? 'bg-foreground' : 'bg-white',
+                  isOpen && styles.hamburgerActiveLineMiddle
+                )}
+              />
+              <span
+                className={cn(
+                  styles.hamburgerLine,
+                  isScrolled ? 'bg-foreground' : 'bg-white',
+                  isOpen && styles.hamburgerActiveLineBottom
+                )}
+              />
             </button>
 
             <nav
-              id="navMenu"
-              className="absolute right-4 top-full hidden w-full max-w-[250px] rounded-2xl border border-white/10 bg-zinc-950 p-5 shadow-2xl lg:static lg:block lg:max-w-full lg:border-none lg:bg-transparent lg:p-0 lg:shadow-none"
+              className={cn(
+                'absolute right-4 top-full mt-3 w-[min(92vw,280px)] rounded-3xl border border-border/60 bg-background/95 p-5 shadow-2xl backdrop-blur-xl lg:static lg:mt-0 lg:block lg:w-auto lg:max-w-full lg:border-none lg:bg-transparent lg:p-0 lg:shadow-none',
+                isOpen ? 'block' : 'hidden',
+                'lg:block'
+              )}
             >
-              <ul className="block lg:flex lg:items-center">
-                {navlinks.map((a, i) => (
-                  <li
-                    className="group"
-                    key={i}
-                  >
+              <ul className="flex flex-col gap-2 lg:flex-row lg:items-center lg:gap-1">
+                {navlinks.map((a) => (
+                  <li className="group" key={a.path}>
                     <Link
                       href={a.path}
+                      onClick={handleNavItemClick}
                       className={cn(
                         styles.navLink,
-                        isMenuActive(a.path) &&
-                          styles.navLinkActive,
-                        'mx-8 flex lg:mx-4'
+                        isMenuActive(a.path) && styles.navLinkActive,
+                        'flex rounded-2xl px-4 py-3 lg:px-4 lg:py-2'
                       )}
                     >
                       {a.title}
@@ -109,7 +207,7 @@ const Navbar: FC = () => {
                   </li>
                 ))}
 
-                <li className="ml-8 mt-4 flex items-center lg:ml-4 lg:mt-0">
+                <li className="mt-2 flex items-center lg:ml-3 lg:mt-0">
                   <ThemeToggle />
                 </li>
               </ul>

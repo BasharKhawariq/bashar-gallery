@@ -5,7 +5,7 @@ export const navlinks = [
   },
   {
     title: 'Events',
-    path: '#events',
+    path: '/#events',
   },
   {
     title: 'Instagram',

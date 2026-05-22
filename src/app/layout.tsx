@@ -1,17 +1,25 @@
 import { ReactNode } from 'react';
 import type { Metadata } from 'next';
-import { Inter as FontSans, Geist } from 'next/font/google';
+import { Geist, Bebas_Neue } from 'next/font/google';
+// @ts-ignore: allow importing global css without type declarations
 import './globals.css';
 
 import { siteMetadata } from '@/data/siteMetadata';
 import ThemeProvider from '@/providers/ThemeProvider';
 import Navbar from '@/components/Layout/Navbar';
 import Footer from '@/components/Layout/Footer';
-import { cn } from "@/lib/utils";
+import { cn } from '@/lib/utils';
 
-const geist = Geist({subsets:['latin'],variable:'--font-sans'});
+const geist = Geist({
+  subsets: ['latin'],
+  variable: '--font-sans',
+});
 
-const fontSans = FontSans({ subsets: ['latin'] });
+const headingFont = Bebas_Neue({
+  subsets: ['latin'],
+  weight: '400',
+  variable: '--font-heading',
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteMetadata.siteUrl || 'http://localhost:3000'),
@@ -53,8 +61,8 @@ export default function RootLayout({
   children: ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning className={cn("font-sans", geist.variable)}>
-      <body className={fontSans.className}>
+    <html lang="en" suppressHydrationWarning className={cn(geist.variable, headingFont.variable)}>
+      <body className="font-sans antialiased">
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
           <Navbar />
 

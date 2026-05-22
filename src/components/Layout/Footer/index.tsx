@@ -2,24 +2,20 @@ import Container from '../Container';
 
 export default function Footer() {
   return (
-    <footer className="border-t border-white/10 bg-background py-10">
+    <footer className="border-t border-border/70 bg-card/30 py-10 backdrop-blur-sm">
       <Container>
-        <div className="flex flex-col items-center justify-between gap-6 md:flex-row">
+        <div className="flex flex-col items-center justify-between gap-6 text-center md:flex-row md:text-left">
           <div>
-            <h2 className="text-lg font-bold tracking-wide text-foreground">
-              BASHAR GALLERY
-            </h2>
+            <h2 className="text-lg font-bold tracking-[0.25em] text-foreground">BASHAR GALLERY</h2>
 
-            <p className="mt-2 text-sm text-muted-foreground">
+            <p className="mt-2 max-w-sm text-sm leading-6 text-muted-foreground">
               Automotive Event Preview Platform
             </p>
           </div>
 
-          <div>
-            <p className="text-sm text-muted-foreground">
-              © 2026 Bashar Gallery. All rights reserved.
-            </p>
-          </div>
+          <p className="text-sm text-muted-foreground">
+            © 2026 Bashar Gallery. All rights reserved.
+          </p>
         </div>
       </Container>
     </footer>

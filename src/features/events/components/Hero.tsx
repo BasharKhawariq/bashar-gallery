@@ -37,7 +37,8 @@ const Hero: FC = () => {
 
             <div className="bg-zinc-100 dark:bg-zinc-900 p-4 rounded-2xl border-2 border-zinc-200 dark:border-zinc-800 font-mono text-sm md:text-base flex items-center justify-between group">
               <span className="text-zinc-800 dark:text-zinc-200">
-                <span className="text-blue-600 dark:text-blue-400">$</span> npx create-bikinproject-app@latest
+                <span className="text-blue-600 dark:text-blue-400">$</span> npx
+                create-bikinproject-app@latest
               </span>
               <button
                 onClick={() => navigator.clipboard.writeText('npx create-bikinproject-app@latest')}
@@ -117,7 +118,9 @@ const Hero: FC = () => {
                     </span>
                   </p>
                   <p className="flex gap-3 pl-6">
-                    <span className="text-muted-foreground">○ React.js (Tailwind + JavaScript)</span>
+                    <span className="text-muted-foreground">
+                      ○ React.js (Tailwind + JavaScript)
+                    </span>
                   </p>
                   <p className="flex gap-3 pl-6">
                     <span className="text-muted-foreground">○ Laravel Breeze API w/ Next.js</span>

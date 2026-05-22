@@ -17,21 +17,15 @@ const ThemeToggle: FC = () => {
     return null;
   }
 
-  const isDark =
-    theme === 'dark' || resolvedTheme === 'dark';
+  const isDark = theme === 'dark' || resolvedTheme === 'dark';
 
   return (
     <button
       aria-label="Toggle Theme"
-      onClick={() =>
-        setTheme(isDark ? 'light' : 'dark')
-      }
-      className="flex h-10 w-10 items-center justify-center rounded-full border border-border bg-card text-foreground transition hover:bg-accent">
-      {isDark ? (
-        <Sun className="h-5 w-5" />
-      ) : (
-        <Moon className="h-5 w-5" />
-      )}
+      onClick={() => setTheme(isDark ? 'light' : 'dark')}
+      className="flex h-10 w-10 items-center justify-center rounded-full border border-border bg-card text-foreground transition hover:bg-accent"
+    >
+      {isDark ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
     </button>
   );
 };
