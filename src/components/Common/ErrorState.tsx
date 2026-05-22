@@ -151,7 +151,7 @@ const ErrorState: FC<ErrorStateProps> = ({ code, error }) => {
               </span>
             </h1>
 
-            <p className="text-lg md:text-xl text-zinc-700 dark:text-zinc-400 max-w-xl leading-relaxed font-medium">
+            <p className="text-lg md:text-xl text-zinc-700 dark:text-muted-foreground max-w-xl leading-relaxed font-medium">
               {meta.description}
             </p>
 
@@ -173,23 +173,23 @@ const ErrorState: FC<ErrorStateProps> = ({ code, error }) => {
                   <div className="w-3.5 h-3.5 rounded-full bg-amber-500/40" />
                   <div className="w-3.5 h-3.5 rounded-full bg-emerald-500/40" />
                 </div>
-                <div className="mx-auto text-xs font-mono text-zinc-500 font-medium">
+                <div className="mx-auto text-xs font-mono text-muted-foreground font-medium">
                   bash — system-error-{code}
                 </div>
               </div>
               <div className="bg-white dark:bg-zinc-950 p-6 font-mono text-sm leading-relaxed overflow-x-auto h-[350px]">
                 <div className="space-y-2">
-                  <p className="text-zinc-400">┌ checking system status...</p>
+                  <p className="text-muted-foreground">┌ checking system status...</p>
                   <p className="flex gap-3">
                     <span className={meta.borderType}>│</span>
                     <span className="text-zinc-800 dark:text-zinc-200">
                       ✖ Fatal Error: {meta.badge}
                     </span>
                   </p>
-                  <p className="text-zinc-400">│</p>
+                  <p className="text-muted-foreground">│</p>
                   <p className="flex gap-3">
                     <span className={meta.borderType}>│</span>
-                    <span className="text-zinc-500">[stacktrace]</span>
+                    <span className="text-muted-foreground">[stacktrace]</span>
                   </p>
                   {error ? (
                     <p className="flex gap-3 text-xs">
@@ -202,25 +202,25 @@ const ErrorState: FC<ErrorStateProps> = ({ code, error }) => {
                     <>
                       <p className="flex gap-3 text-xs">
                         <span className={meta.borderType}>│</span>
-                        <span className="text-zinc-500">
+                        <span className="text-muted-foreground">
                           at SystemHandler.resolve (internal/core.js:{code})
                         </span>
                       </p>
                       <p className="flex gap-3 text-xs">
                         <span className={meta.borderType}>│</span>
-                        <span className="text-zinc-500">
+                        <span className="text-muted-foreground">
                           at RequestPipeline.execute (internal/router.js:123)
                         </span>
                       </p>
                     </>
                   )}
-                  <p className="text-zinc-400">│</p>
-                  <p className="text-zinc-400 text-xs text-center">────────────────────────</p>
+                  <p className="text-muted-foreground">│</p>
+                  <p className="text-muted-foreground text-xs text-center">────────────────────────</p>
                   <p className={`${meta.errorColor} font-bold text-center`}>
                     {' '}
                     ⚠️ ERROR_CODE: {code}
                   </p>
-                  <p className="text-zinc-400 text-xs text-center">────────────────────────</p>
+                  <p className="text-muted-foreground text-xs text-center">────────────────────────</p>
                 </div>
               </div>
             </div>

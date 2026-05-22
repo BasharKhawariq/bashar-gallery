@@ -30,7 +30,7 @@ const Hero: FC = () => {
               </span>
             </h1>
 
-            <p className="text-lg md:text-xl text-zinc-700 dark:text-zinc-400 max-w-xl leading-relaxed font-medium">
+            <p className="text-lg md:text-xl text-zinc-700 dark:text-muted-foreground max-w-xl leading-relaxed font-medium">
               Generator starter project yang didesain untuk kenyamanan developer. Lupakan setup
               manual, cukup satu perintah dan project Anda siap tempur.
             </p>
@@ -41,7 +41,7 @@ const Hero: FC = () => {
               </span>
               <button
                 onClick={() => navigator.clipboard.writeText('npx create-bikinproject-app@latest')}
-                className="p-2 hover:bg-zinc-200 dark:hover:bg-zinc-800 rounded-lg transition-colors text-zinc-500 hover:text-blue-600"
+                className="p-2 hover:bg-zinc-200 dark:hover:bg-zinc-800 rounded-lg transition-colors text-muted-foreground hover:text-blue-600"
                 title="Copy to clipboard"
               >
                 <svg
@@ -86,13 +86,13 @@ const Hero: FC = () => {
                   <div className="w-3.5 h-3.5 rounded-full bg-amber-500/40" />
                   <div className="w-3.5 h-3.5 rounded-full bg-emerald-500/40" />
                 </div>
-                <div className="mx-auto text-xs font-mono text-zinc-500 font-medium">
+                <div className="mx-auto text-xs font-mono text-muted-foreground font-medium">
                   bash — create-bikinproject-app
                 </div>
               </div>
               <div className="bg-white dark:bg-zinc-950 p-6 font-mono text-sm leading-relaxed overflow-x-auto h-[400px]">
                 <div className="space-y-2">
-                  <p className="text-zinc-400">┌ create-bikinproject-app</p>
+                  <p className="text-muted-foreground">┌ create-bikinproject-app</p>
                   <p className="flex gap-3">
                     <span className="text-cyan-600 dark:text-cyan-400">│</span>
                     <span className="text-zinc-800 dark:text-zinc-200">
@@ -105,7 +105,7 @@ const Hero: FC = () => {
                       ./your-project
                     </span>
                   </p>
-                  <p className="text-zinc-400">│</p>
+                  <p className="text-muted-foreground">│</p>
                   <p className="flex gap-3">
                     <span className="text-cyan-600 dark:text-cyan-400">│</span>
                     <span className="text-zinc-800 dark:text-zinc-200">◇ Pick a project type</span>
@@ -117,12 +117,12 @@ const Hero: FC = () => {
                     </span>
                   </p>
                   <p className="flex gap-3 pl-6">
-                    <span className="text-zinc-500">○ React.js (Tailwind + JavaScript)</span>
+                    <span className="text-muted-foreground">○ React.js (Tailwind + JavaScript)</span>
                   </p>
                   <p className="flex gap-3 pl-6">
-                    <span className="text-zinc-500">○ Laravel Breeze API w/ Next.js</span>
+                    <span className="text-muted-foreground">○ Laravel Breeze API w/ Next.js</span>
                   </p>
-                  <p className="text-zinc-400">│</p>
+                  <p className="text-muted-foreground">│</p>
                   <p className="flex gap-3">
                     <span className="text-cyan-600 dark:text-cyan-400">│</span>
                     <span className="text-emerald-600 dark:text-emerald-400">
@@ -135,13 +135,13 @@ const Hero: FC = () => {
                       ✅ Project created successfully!
                     </span>
                   </p>
-                  <p className="text-zinc-400">│</p>
-                  <p className="text-zinc-400 text-xs">────────────────────────╮</p>
+                  <p className="text-muted-foreground">│</p>
+                  <p className="text-muted-foreground text-xs">────────────────────────╮</p>
                   <p className="text-blue-600 dark:text-blue-400 font-bold">
                     {' '}
                     🎉 Project ready to use!
                   </p>
-                  <p className="text-zinc-400 text-xs">────────────────────────╯</p>
+                  <p className="text-muted-foreground text-xs">────────────────────────╯</p>
                 </div>
               </div>
             </div>

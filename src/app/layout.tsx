@@ -1,12 +1,15 @@
 import { ReactNode } from 'react';
 import type { Metadata } from 'next';
-import { Inter as FontSans } from 'next/font/google';
+import { Inter as FontSans, Geist } from 'next/font/google';
 import './globals.css';
 
 import { siteMetadata } from '@/data/siteMetadata';
 import ThemeProvider from '@/providers/ThemeProvider';
-import Navbar from '@/components/Mixins/Navbar';
-import Footer from '@/components/Mixins/Footer';
+import Navbar from '@/components/Layout/Navbar';
+import Footer from '@/components/Layout/Footer';
+import { cn } from "@/lib/utils";
+
+const geist = Geist({subsets:['latin'],variable:'--font-sans'});
 
 const fontSans = FontSans({ subsets: ['latin'] });
 
@@ -50,7 +53,7 @@ export default function RootLayout({
   children: ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning className={cn("font-sans", geist.variable)}>
       <body className={fontSans.className}>
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
           <Navbar />

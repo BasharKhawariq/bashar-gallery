@@ -1,18 +1,15 @@
-'use client';
-import { FC } from 'react';
+import HeroSection from '@/features/home/components/HeroSection';
+import RecentEvents from '@/features/home/components/RecentEvents';
+import WorkflowSection from '@/features/home/components/WorkflowSection';
 
-import Hero from './_components/Hero';
-import Features from './_components/Features';
-import Steps from './_components/Steps';
-
-const Home: FC = () => {
+export default function HomePage() {
   return (
-    <div className="w-full">
-      <Hero />
-      <Features />
-      <Steps />
-    </div>
-  );
-};
+    <>
+      <HeroSection />
 
-export default Home;
+      <RecentEvents />
+
+      <WorkflowSection />
+    </>
+  );
+}

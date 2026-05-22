@@ -54,7 +54,7 @@ const Features: FC = () => {
           <h2 className="text-3xl md:text-5xl font-extrabold text-zinc-950 dark:text-white">
             Fitur Unggulan Kami
           </h2>
-          <p className="text-lg text-zinc-700 dark:text-zinc-400 font-medium tracking-tight">
+          <p className="text-lg text-zinc-700 dark:text-muted-foreground font-medium tracking-tight">
             Segala yang Anda butuhkan untuk membangun project modern dalam satu platform yang
             terintegrasi.
           </p>
@@ -74,7 +74,7 @@ const Features: FC = () => {
               <h3 className="text-xl font-bold text-zinc-950 dark:text-white mb-3">
                 {feature.title}
               </h3>
-              <p className="text-zinc-700 dark:text-zinc-400 leading-relaxed font-medium">
+              <p className="text-zinc-700 dark:text-muted-foreground leading-relaxed font-medium">
                 {feature.description}
               </p>
             </div>
