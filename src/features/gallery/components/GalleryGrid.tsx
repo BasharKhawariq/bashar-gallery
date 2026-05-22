@@ -24,6 +24,7 @@ export default function GalleryGrid({ photos }: Props) {
             key={photo.id}
             id={photo.id}
             image={photo.image}
+            orientation={photo.orientation}
             onClick={() => {
               setSelectedPhoto(photo);
               setOpen(true);

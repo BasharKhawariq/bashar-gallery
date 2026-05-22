@@ -1,6 +1,8 @@
+import Link from 'next/link';
 import { notFound } from 'next/navigation';
 
 import Container from '@/components/Layout/Container';
+import { Button } from '@/components/ui/button';
 
 import GalleryGrid from '@/features/gallery/components/GalleryGrid';
 
@@ -24,6 +26,12 @@ export default async function EventDetailPage({ params }: Props) {
   return (
     <section className="bg-background pb-24 pt-32">
       <Container>
+        <div className="mb-8">
+          <Button asChild variant="outline" size="sm">
+            <Link href="/">Back to Home</Link>
+          </Button>
+        </div>
+
         <div className="mb-12 max-w-4xl">
           <p className="text-sm uppercase tracking-[0.3em] text-muted-foreground">Event Gallery</p>
 

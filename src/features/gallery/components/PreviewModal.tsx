@@ -1,6 +1,12 @@
 'use client';
 
-import { Dialog, DialogContent } from '@/components/ui/dialog';
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+} from '@/components/ui/dialog';
 
 import type { Photo } from '../types/photo';
 
@@ -21,13 +27,20 @@ export default function PreviewModal({ open, onOpenChange, photo }: Props) {
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="bg-background p-6 sm:max-w-5xl">
-        <div className="grid gap-6">
+      <DialogContent className="max-h-[calc(100vh-2rem)] overflow-y-auto bg-background p-5 sm:max-w-lg md:max-w-xl">
+        <DialogHeader>
+          <DialogTitle className="text-base">Preview {photo.id}</DialogTitle>
+          <DialogDescription className="sr-only">
+            Preview photo {photo.id}. Use the request button to open WhatsApp.
+          </DialogDescription>
+        </DialogHeader>
+
+        <div className="grid gap-5">
           <img
             src={photo.image}
             alt={photo.id}
             decoding="async"
-            className="max-h-[75vh] w-full rounded-2xl object-cover"
+            className="max-h-[60vh] w-full rounded-2xl bg-muted/20 object-contain"
           />
 
           <div className="flex flex-col items-start justify-between gap-4 border-t border-border/60 pt-4 md:flex-row md:items-center">

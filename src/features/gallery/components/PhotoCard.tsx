@@ -1,10 +1,18 @@
+import { cn } from '@/lib/utils';
+
+import type { PhotoOrientation } from '../types/photo';
+
 type Props = {
   id: string;
   image: string;
+  orientation?: PhotoOrientation;
   onClick: () => void;
 };
 
-export default function PhotoCard({ id, image, onClick }: Props) {
+export default function PhotoCard({ id, image, orientation = 'landscape', onClick }: Props) {
+  const mediaClassName =
+    orientation === 'portrait' ? 'h-[480px] sm:h-[520px] lg:h-[560px]' : 'h-[320px] sm:h-[360px]';
+
   return (
     <button
       type="button"
@@ -12,13 +20,13 @@ export default function PhotoCard({ id, image, onClick }: Props) {
       aria-label={`Preview photo ${id}`}
       className="group relative overflow-hidden rounded-3xl border border-border/70 bg-card/70 shadow-lg transition duration-300 hover:-translate-y-1 hover:shadow-xl hover:ring-2 hover:ring-ring/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50 focus-visible:ring-offset-2 focus-visible:ring-offset-background"
     >
-      <div className="overflow-hidden">
+      <div className={cn('overflow-hidden', mediaClassName)}>
         <img
           src={image}
           alt={id}
           loading="lazy"
           decoding="async"
-          className="h-[320px] w-full object-cover transition duration-700 group-hover:scale-110"
+          className="h-full w-full object-cover transition duration-700 group-hover:scale-110"
         />
       </div>
 
