@@ -28,7 +28,7 @@ export default function HeroSection() {
             <h1 className="mt-6 max-w-3xl text-5xl font-black leading-[0.95] text-foreground md:text-7xl lg:text-8xl">
               CAPTURING
               <br />
-              SUNMORI
+              YOUR
               <br />
               MOMENTS
             </h1>

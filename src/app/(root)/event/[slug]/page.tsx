@@ -6,7 +6,10 @@ import { Button } from '@/components/ui/button';
 
 import GalleryGrid from '@/features/gallery/components/GalleryGrid';
 
-import { events } from '@/features/events/data/events';
+import { getEventBySlug } from '@/lib/events';
+
+export const runtime = 'nodejs';
+export const dynamic = 'force-dynamic';
 
 type Props = {
   params: Promise<{
@@ -17,11 +20,13 @@ type Props = {
 export default async function EventDetailPage({ params }: Props) {
   const { slug } = await params;
 
-  const event = events.find((item) => item.slug === slug);
+  const event = getEventBySlug(slug);
 
   if (!event) {
     return notFound();
   }
+
+  const meta = [event.location, event.date].filter(Boolean).join(' • ');
 
   return (
     <section className="bg-background pb-24 pt-32">
@@ -37,12 +42,14 @@ export default async function EventDetailPage({ params }: Props) {
 
           <h1 className="mt-4 text-4xl font-black tracking-tight md:text-6xl">{event.title}</h1>
 
-          <p className="mt-4 text-muted-foreground">
-            {event.location} • {event.date}
-          </p>
+          {meta ? <p className="mt-4 text-muted-foreground">{meta}</p> : null}
+
+          {event.description ? (
+            <p className="mt-6 max-w-2xl text-lg text-muted-foreground">{event.description}</p>
+          ) : null}
         </div>
 
-        <GalleryGrid photos={event.photos} />
+        <GalleryGrid eventSlug={event.slug} photos={event.photos} />
       </Container>
     </section>
   );

@@ -1,9 +1,11 @@
 import Container from '@/components/Layout/Container';
 
-import { events } from '@/features/events/data/events';
+import { getEvents } from '@/lib/events';
 import EventCard from '@/features/events/components/EventCard';
 
 export default function RecentEvents() {
+  const events = getEvents();
+
   return (
     <section id="events" className="border-b border-border/70 py-24 md:py-28">
       <Container>
@@ -17,11 +19,6 @@ export default function RecentEvents() {
               Latest Preview Sessions
             </h2>
           </div>
-
-          <p className="max-w-xl text-sm leading-6 text-muted-foreground md:text-right">
-            Each event is presented with a cleaner preview card so the layout stays readable in both
-            light and dark themes.
-          </p>
         </div>
 
         <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">

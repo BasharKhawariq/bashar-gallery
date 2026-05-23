@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { Card, CardContent } from '@/components/ui/card';
 import { cn } from '@/lib/utils';
 
-import type { Event } from '../types/event';
+import type { Event } from '@/types/event';
 
 type Props = {
   event: Event;
@@ -31,12 +31,22 @@ export default function EventCard({ event, className }: Props) {
           className="h-[320px] w-full object-cover transition duration-700 group-hover:scale-105"
         />
 
-        <CardContent className="space-y-2 p-6">
-          <p className="text-sm uppercase tracking-[0.25em] text-muted-foreground">{event.date}</p>
+        <CardContent className="p-6">
+          {event.date ? (
+            <p className="text-sm uppercase tracking-[0.25em] text-muted-foreground">
+              {event.date}
+            </p>
+          ) : null}
 
-          <h3 className="text-2xl font-bold leading-tight">{event.title}</h3>
+          <h3 className="mt-2 text-2xl font-bold leading-tight">{event.title}</h3>
 
-          <p className="text-sm text-muted-foreground">{event.location}</p>
+          {event.location ? (
+            <p className="mt-2 text-sm text-muted-foreground">{event.location}</p>
+          ) : null}
+
+          {event.description ? (
+            <p className="mt-4 line-clamp-2 text-sm text-muted-foreground">{event.description}</p>
+          ) : null}
         </CardContent>
       </Card>
     </Link>

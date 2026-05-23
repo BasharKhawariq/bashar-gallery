@@ -1,9 +1,14 @@
 import Container from '@/components/Layout/Container';
 
 import EventCard from '@/features/events/components/EventCard';
-import { events } from '@/features/events/data/events';
+import { getEvents } from '@/lib/events';
+
+export const runtime = 'nodejs';
+export const dynamic = 'force-dynamic';
 
 export default function EventsPage() {
+  const events = getEvents();
+
   return (
     <section className="bg-background pb-24 pt-32">
       <Container>
