@@ -10,7 +10,7 @@ export const siteMetadata = {
   siteUrl: 'http://localhost:3000', // e.g. https://yourwebsite.com
   siteRepo: 'https://github.com/nuflakbrr/frontend-template',
   sitePublicRepo: 'https://github.com/nuflakbrr/frontend-template',
-  siteLogo: '/static/favicons/icon-512x512.png',
+  siteLogo: '/assets/img/bashar-logo-trimmed.png',
   image: '/static/images/profile-picture.png',
   socialBanner: '/static/images/twitter-card.png',
   email: 'naufalakbar378@gmail.com',

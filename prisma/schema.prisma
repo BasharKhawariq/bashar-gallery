@@ -1,0 +1,56 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+enum Role {
+  ADMIN
+  USER
+}
+
+model User {
+  id        String   @id @db.Uuid
+  email     String   @unique
+  role      Role     @default(USER)
+  createdAt DateTime @default(now()) @map("created_at")
+
+  @@map("users")
+}
+
+model Event {
+  id          String   @id @default(uuid()) @db.Uuid
+  title       String
+  slug        String   @unique
+  description String?
+  location    String?
+  eventDate   DateTime? @map("event_date")
+  coverUrl    String?  @map("cover_url")
+  published   Boolean  @default(false)
+  createdAt   DateTime @default(now()) @map("created_at")
+
+  photos Photo[]
+
+  @@map("events")
+}
+
+model Photo {
+  id          String   @id @default(uuid()) @db.Uuid
+  eventId     String   @db.Uuid @map("event_id")
+  filename    String
+  previewUrl  String   @map("preview_url")
+  originalUrl String   @map("original_url")
+  width       Int?
+  height      Int?
+  createdAt   DateTime @default(now()) @map("created_at")
+
+  event Event @relation(fields: [eventId], references: [id], onDelete: Cascade)
+
+  @@unique([eventId, filename])
+  @@index([eventId])
+  @@map("photos")
+}

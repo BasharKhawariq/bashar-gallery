@@ -1,6 +1,16 @@
+'use client';
+
+import { usePathname } from 'next/navigation';
+
 import Container from '../Container';
 
 export default function Footer() {
+  const pathname = usePathname();
+
+  if (pathname.startsWith('/admin')) {
+    return null;
+  }
+
   return (
     <footer className="border-t border-border/70 bg-card/30 py-10 backdrop-blur-sm">
       <Container>

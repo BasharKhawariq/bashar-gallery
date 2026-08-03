@@ -2,6 +2,7 @@
 
 import { FC, useEffect, useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 
 import ThemeToggle from '@/components/Common/ThemeToggle';
@@ -16,6 +17,7 @@ const Navbar: FC = () => {
   const [activeHash, setActiveHash] = useState('');
 
   const pathname = usePathname();
+  const isAdminPath = pathname.startsWith('/admin');
 
   useEffect(() => {
     const onScroll = () => {
@@ -72,6 +74,10 @@ const Navbar: FC = () => {
     setIsOpen(false);
     setActiveHash(window.location.hash || '');
   }, [pathname]);
+
+  if (isAdminPath) {
+    return null;
+  }
 
   const toggleMenu = () => {
     setIsOpen((currentValue) => !currentValue);
@@ -138,11 +144,20 @@ const Navbar: FC = () => {
             <Link
               href="/"
               className={cn(
-                'inline-flex items-center gap-2 py-5 text-xl font-bold tracking-[0.22em] transition-colors lg:text-2xl',
+                'inline-flex items-center gap-3 py-4 transition-colors lg:py-5',
                 isScrolled ? 'text-foreground' : 'text-white'
               )}
             >
-              BASHAR GALLERY
+              <span className="relative h-12 w-[180px] select-none lg:h-16 lg:w-[260px]">
+                <Image
+                  src="/assets/img/bashar-logo-trimmed.png"
+                  alt="Bashar Production LJK"
+                  fill
+                  priority
+                  sizes="(max-width: 1024px) 180px, 260px"
+                  className={cn('object-contain', isScrolled && 'drop-shadow-sm')}
+                />
+              </span>
             </Link>
           </div>
 

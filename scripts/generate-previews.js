@@ -1,5 +1,7 @@
 'use strict';
 
+require('dotenv').config();
+
 const fs = require('fs');
 const path = require('path');
 const sharp = require('sharp');
@@ -7,12 +9,43 @@ const sharp = require('sharp');
 const ORIGINALS_DIR = path.join(process.cwd(), 'public', 'events', 'originals');
 const PREVIEWS_DIR = path.join(process.cwd(), 'public', 'events', 'previews');
 
-const MAX_WIDTH = Number(process.env.PREVIEW_MAX_WIDTH ?? 1600);
-const QUALITY = Number(process.env.PREVIEW_WEBP_QUALITY ?? 72);
+const MAX_WIDTH = Number(
+  process.env.IMAGEKIT_PREVIEW_MAX_WIDTH ?? process.env.PREVIEW_MAX_WIDTH ?? 1600
+);
+const QUALITY = Number(
+  process.env.IMAGEKIT_PREVIEW_QUALITY ?? process.env.PREVIEW_WEBP_QUALITY ?? 72
+);
+
+const WATERMARK_ASSET = path.join(
+  process.cwd(),
+  'public',
+  'assets',
+  'img',
+  'bashar-logo-trimmed.png'
+);
 
 const FORCE = process.argv.includes('--force');
 
 const SUPPORTED_INPUT_EXTENSIONS = new Set(['.jpg', '.jpeg', '.png', '.webp']);
+
+async function createWatermarkBuffer(targetWidth) {
+  if (!fs.existsSync(WATERMARK_ASSET)) {
+    return null;
+  }
+
+  const width = Math.max(360, Number(targetWidth) || MAX_WIDTH);
+  const scaledWidth = Math.round(width * 0.62);
+
+  return sharp(WATERMARK_ASSET)
+    .trim()
+    .resize({
+      width: scaledWidth,
+      withoutEnlargement: true,
+    })
+    .ensureAlpha(0.22)
+    .png({ compressionLevel: 9 })
+    .toBuffer();
+}
 
 function isSupportedImageFile(filename) {
   const ext = path.extname(filename).toLowerCase();
@@ -88,12 +121,26 @@ async function generatePreviews() {
 
         console.log(`Generating: ${event}/${file}`);
 
-        await sharp(inputPath)
-          .rotate()
+        const image = sharp(inputPath).rotate();
+        const metadata = await image.metadata();
+        const outputWidth = Math.min(metadata.width ?? MAX_WIDTH, MAX_WIDTH);
+        const watermark = await createWatermarkBuffer(outputWidth);
+
+        await image
           .resize({
             width: MAX_WIDTH,
             withoutEnlargement: true,
           })
+          .composite(
+            watermark
+              ? [
+                  {
+                    input: watermark,
+                    gravity: 'south',
+                  },
+                ]
+              : []
+          )
           .webp({
             quality: QUALITY,
             effort: 4,

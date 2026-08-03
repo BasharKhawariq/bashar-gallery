@@ -6,8 +6,8 @@ import { getEvents } from '@/lib/events';
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
 
-export default function EventsPage() {
-  const events = getEvents();
+export default async function EventsPage() {
+  const events = await getEvents();
 
   return (
     <section className="bg-background pb-24 pt-32">

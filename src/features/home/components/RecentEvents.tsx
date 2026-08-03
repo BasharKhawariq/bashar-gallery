@@ -3,8 +3,8 @@ import Container from '@/components/Layout/Container';
 import { getEvents } from '@/lib/events';
 import EventCard from '@/features/events/components/EventCard';
 
-export default function RecentEvents() {
-  const events = getEvents();
+export default async function RecentEvents() {
+  const events = await getEvents();
 
   return (
     <section id="events" className="border-b border-border/70 py-24 md:py-28">
